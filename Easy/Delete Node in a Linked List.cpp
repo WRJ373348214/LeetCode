@@ -6,12 +6,14 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
- //As for c/c++
- //Memery leak!!没有free内存会泄露
+//As for c/c++
+//小心Memery leak!!
 class Solution {
 public:
     void deleteNode(ListNode* node) {
-        node->val=node->next->val;
-        node->next=node->next->next;
+        ListNode * p=node->next;
+        node->val=p->val;
+        node->next=p->next;
+        free(p);
     }
 };

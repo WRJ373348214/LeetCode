@@ -6,7 +6,8 @@
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
- //Memery leak!!ÎÒÈÏÎª³öÌâÈËÍÑÀëÁËÏÖÊµ£¬Ã»ÓĞfreeÄÚ´æ»áĞ¹Â¶
+ //As for c/c++
+ //Memery leak!!æ²¡æœ‰freeå†…å­˜ä¼šæ³„éœ²
 class Solution {
 public:
     void deleteNode(ListNode* node) {

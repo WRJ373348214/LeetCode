@@ -9,21 +9,22 @@
  */
 class Solution {
 public:
-    bool isBalanced(TreeNode* root) {
-        if(!root||(root->left==NULL&&root->right==NULL))
+    bool check(TreeNode* root,int& dep){
+        if(root==NULL){
+            dep=0;
             return true;
-        if(root->left==NULL){
-            if(root->right->left==NULL&&root->right->right==NULL)
-                return true;
-            else
-                return false;
         }
-        if(root->right==NULL){
-            if(root->left->left==NULL&&root->left->right==NULL)
-                return true;
-            else
-                return false;
-        }
-        return isBalanced(root->left)&&isBalanced(root->right);
+        int leftDep,rightDep;
+        if(!check(root->left,leftDep))
+            return false;
+        if(!check(root->right,rightDep))
+            return false;
+        dep=max(leftDep,rightDep)+1;
+
+        return (abs(leftDep-rightDep)<=1);
+    }
+    bool isBalanced(TreeNode* root) {
+     int dep=0;
+     return check(root,dep);
     }
 };

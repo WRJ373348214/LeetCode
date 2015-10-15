@@ -35,10 +35,9 @@ public:
         }
         return result;
     }
-    //   在discuss看到的4ms
-    //   solution1、solution2都是
-    //   为什么类似的思路会造成运行的时间相差了一倍？
-    // =>移位操作比乘二操作效率更高！(汇编的作用!)
+
+    // 移位操作比乘二操作效率更高！(汇编的作用!)
+    // 编译器优化
     uint32_t reverseBits(uint32_t n) {
         int count = 31;
         return solution2(n, count);
